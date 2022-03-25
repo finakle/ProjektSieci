@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <head>
-	<title>Szyfr Rail Fence</title>
+	<title>Szyfr cezara</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/szyfry.css">
 </head>
 <body>
-    <br/><br/>
+    <main>
+        <h1>Szyfr Cezara</h1>
+        <br/><br/>
     <div>
-        slowo
+        <h2>Wpisz słowo:</h2>
         <input type="text" id="tekst1" value="">
-        klucz
+        <h2>Wpisz klucz:</h2>
         <input type="number" id="klucz1" value="0">
     </div>
-    <button  onclick="szyfrCezara('abcdefghijklmnopqrstuvwxyz')">
+    <br></br>
+    <button  class="button" onclick="szyfrCezara('abcdefghijklmnopqrstuvwxyz')">
     ZASZYFRUJ
     </button>
-    <button  onclick="szyfrCezara('zyxwvutsrqponmlkjihgfedcba')">
+    <a> </a>
+    <button  class="button" onclick="szyfrCezara('zyxwvutsrqponmlkjihgfedcba')">
     ROZSZYFRUJ
     </button>
     <br/><br/>
-    <input type="text" size="30" id="wynik" readonly>
+    <h2>Wynik operacji: </h2>
+    <input class="input1" type="text" size="30" id="wynik" readonly>
+</main>
 </body>
 <script type="text/javascript" src="../js/cezar.js"></script>
 </html>
