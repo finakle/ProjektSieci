@@ -4,8 +4,11 @@ function szyfrCezara(alfabet){
     if(tekst == ""){
         alert('Wpisz tekst');
     }
-    if(klucz == ""){
-        alert('Wpisz klucz');
+    // if(klucz == ""){
+    //     alert('Wpisz klucz');
+    // }
+    if(klucz == null || klucz <= 0) {
+        alert('Klucz powinien byc wartoscia dodatnia!')
     }
     if(tekst != "" && klucz != ""){
         let wynik = "";
@@ -24,6 +27,8 @@ function szyfrCezara(alfabet){
             }
         }
         document.getElementById("wynik").value = wynik;
+        console.log(klucz);
     }
+    console.log(klucz);
     return false;
 }
