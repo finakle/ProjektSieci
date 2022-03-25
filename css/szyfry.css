@@ -26,5 +26,5 @@ main{display: table; margin: auto; padding-bottom: 20px; text-align: center;}
     border: 3px solid #555;
   } */
 
-  input{margin: 0 auto; display: block; text-align: center; font-size: 22px; height: 35px;}
-  .input1{margin: 0 auto; display: block; text-align: center; font-size: 22px; height: 80px;}
+  input{margin: 0 auto; display: block; text-align: center; font-size: 22px; height: 35px; width: 1000px;}
+  .input1{margin: 0 auto; display: block; text-align: center; font-size: 22px; height: 80px; width: 1000px;}
