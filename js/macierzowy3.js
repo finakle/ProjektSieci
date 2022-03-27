@@ -113,7 +113,6 @@ const deszyfrowanie = (text, klucz) => {
         }
     }
 
-    console.log(textArray)
     tmp = 0;
     for (i = 1; i <= N ; i++){ 
         for (j = 0; j < klucz.length; j++){              
@@ -134,7 +133,6 @@ const deszyfrowanie = (text, klucz) => {
                 }               
             }
         }
-                    // textArray[j][i] = textString.charAt(tmp-1)+" "
     }
 
     for (i = 0; i < N+1; i++){
