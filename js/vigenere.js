@@ -9,19 +9,14 @@ function szyfrowanie(alfabet){
         alert('Klucz nie moze byc pusty');
     }
     // \d === [0-9]
-    // if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
-    //     alert("Klucz nie moze zawierac cyrf");
-    // }
-
-    function check_num(str){
-        var reg = /[0-9]/g;
-        var ntab = str.match(reg);
-        if(ntab!=null) {
-            alert("klucz nie moze zawierac cyfry");
-            return false;
-        }
+    if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
+        alert("Klucz nie moze zawierac cyfr");
     }
-    check_num(klucz);
+
+
+    if(tekst.includes('0') || tekst.includes('1') || tekst.includes('2') || tekst.includes('3') || tekst.includes('4') || tekst.includes('5') || tekst.includes('6') || tekst.includes('7') || tekst.includes('8') || tekst.includes('9')) {
+        alert("Tekst nie moze zawierac cyrf");
+    }
 
 
     if(tekst != "" && klucz != ""){

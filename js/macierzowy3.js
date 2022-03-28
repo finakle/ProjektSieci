@@ -5,16 +5,23 @@ const szyfrowanie = (text, klucz) => {
     if(text == ""){
         alert('Tekst nie moze byc pusty');
     }
-    function check_num(str){
-        var reg = /[0-9]/g;
-        var ntab = str.match(reg);
-        if(ntab!=null) {
-            alert("klucz oraz tekst nie moga zawierac cyfry");
-            return false;
-        }
+    if(klucz == null || klucz <= 0) {
+        alert('Klucz powinien byc wartoscia dodatnia!')
     }
-    check_num(klucz);
-    check_num(text);
+
+    if(tekst.includes('0') || tekst.includes('1') || tekst.includes('2') || tekst.includes('3') || tekst.includes('4') || tekst.includes('5') || tekst.includes('6') || tekst.includes('7') || tekst.includes('8') || tekst.includes('9')) {
+        alert("Tekst nie moze zawierac cyrf");
+    }
+    // function check_num(str){
+    //     var reg = /[0-9]/g;
+    //     var ntab = str.match(reg);
+    //     if(ntab!=null) {
+    //         alert("klucz oraz tekst nie moga zawierac cyfry");
+    //         return false;
+    //     }
+    // }
+    // check_num(klucz);
+    // check_num(text);
 
     let textString = text.replace(/ /g,'')
     klucz = klucz.toLowerCase();

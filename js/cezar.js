@@ -10,6 +10,11 @@ function szyfrCezara(alfabet){
     if(klucz == null || klucz <= 0) {
         alert('Klucz powinien byc wartoscia dodatnia!')
     }
+
+    if(tekst.includes('0') || tekst.includes('1') || tekst.includes('2') || tekst.includes('3') || tekst.includes('4') || tekst.includes('5') || tekst.includes('6') || tekst.includes('7') || tekst.includes('8') || tekst.includes('9')) {
+        alert("Tekst nie moze zawierac cyrf");
+    }
+
     if(tekst != "" && klucz != ""){
         let wynik = "";
         klucz = parseInt(klucz);
