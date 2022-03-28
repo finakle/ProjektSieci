@@ -25,6 +25,16 @@ const macierzowyA = (tekst, klucz) => {
         tmp++;
       }
     }
+
+    for (i = 0; i < N; i++){ 
+      for (j = 0; j < N; j++){
+        if(tablica[i][j] == ''){
+          tablica[i][j] = " ";
+          tmp++;
+        }
+      }
+    }
+
     for (i = 0; i < N; i++){
       for (j = 0; j < N; j++){  // slowoKlucz to string klucza bez - czyli np 3142 a -1 bo iteracja od 0 
       zaszyfrowane = zaszyfrowane + tablica[i][slowoKlucz[j]-1];
