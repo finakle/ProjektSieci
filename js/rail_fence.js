@@ -1,10 +1,10 @@
 // text = CRYPTOGRAPHY , N=3
 const szyfrowanie = (text, klucz) => {
-  if(klucz == null || klucz <= 0) {
-    alert('Klucz powinien byc wartoscia dodatnia!!!')
-  }
   if(text == ""){
     alert('Tekst nie moze byc pusty');
+  }
+  else if(klucz == null || klucz <= 0) {
+    alert('Klucz powinien byc wartoscia dodatnia!!!')
   }
 
   const N = parseInt(klucz)

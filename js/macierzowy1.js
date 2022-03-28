@@ -1,15 +1,19 @@
 const macierzowyA = (tekst, klucz) => {
-  if(klucz == null || klucz <= 0) {
-    alert('Klucz powinien byc wartoscia dodatnia!!!')
-  }
   if(tekst == ""){
     alert('Tekst nie moze byc pusty');
   }
-  if(!klucz.includes('-')){
+  else if(klucz == ""){
+    alert('Klucz nie moze byc pusty');
+  }
+  else if(klucz == null || klucz <= 0) {
+    alert('Klucz powinien byc wartoscia dodatnia!!!')
+  }
+  else if(!klucz.includes('-')){
     alert("klucz powinien oddzielac liczby znakiem - ");
   }
   else{
     let slowoKlucz = klucz.replace(/-/g,'') //usuwamy - z klucza
+    console.log(typeof(slowoKlucz));
     console.log(slowoKlucz);
     const N = slowoKlucz.length;
     console.log(klucz)

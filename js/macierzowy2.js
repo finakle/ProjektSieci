@@ -2,10 +2,10 @@ const Szyfrowanie = (text, klucz) => {
   if(klucz == "") {
     alert('Klucz nie moze byc pusty')
   }
-  if(text == ""){
+  else if(text == ""){
       alert('Tekst nie moze byc pusty');
   }
-  if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
+  else if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
     alert("Klucz nie moze zawierac cyfr");
   }
   else if(text.includes('0') || text.includes('1') || text.includes('2') || text.includes('3') || text.includes('4') || text.includes('5') || text.includes('6') || text.includes('7') || text.includes('8') || text.includes('9')) {
@@ -72,10 +72,10 @@ const Deszyfrowanie = (text, klucz) => {
   if(klucz == "") {
     alert('Klucz nie moze byc pusty')
   }
-  if(text == ""){
+  else if(text == ""){
       alert('Tekst nie moze byc pusty');
   }
-  if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
+  else if(klucz.includes('0') || klucz.includes('1') || klucz.includes('2') || klucz.includes('3') || klucz.includes('4') || klucz.includes('5') || klucz.includes('6') || klucz.includes('7') || klucz.includes('8') || klucz.includes('9')) {
     alert("Klucz nie moze zawierac cyfr");
   }
   else if(text.includes('0') || text.includes('1') || text.includes('2') || text.includes('3') || text.includes('4') || text.includes('5') || text.includes('6') || text.includes('7') || text.includes('8') || text.includes('9')) {
