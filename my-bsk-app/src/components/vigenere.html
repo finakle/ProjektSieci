@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+	<title>Szyfr Vigenere'a</title>
+    <link rel="stylesheet" type="text/css" href="../css/szyfry.css">
+</head>
+<body>
+    <main>
+    <h1>Szyfr Vigenere'a</h1>
+    <br/><br/>
+    <div>
+        <h2>Wpisz słowo:</h2>
+        <input class="input" type="text" id="tekst" value="">
+        <h2>Wpisz klucz:</h2>
+        <input type="text" id="klucz" value="">
+    </div>
+    <br></br>
+    <button  class= "button" onclick="szyfrowanie('abcdefghijklmnopqrstuvwxyz')">
+    ZASZYFRUJ 
+    </button>
+    <a>     </a>
+    <button  button  class= "button" onclick="deszyfrowanie('abcdefghijklmnopqrstuvwxyz')">
+    ROZSZYFRUJ
+    </button>
+    <br/><br/>
+    <h2>Wynik operacji: </h2>
+    <input class="input1" type="text" size="30" id="wynik" readonly>
+</main>
+</body>
+<script type="text/javascript" src="../js/vigenere.js"></script>
+</html>

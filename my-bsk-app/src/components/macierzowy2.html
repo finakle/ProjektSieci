@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+    <title>Szyfr Macierzowy b)</title>
+    <link rel="stylesheet" type="text/css" href="../css/szyfry.css">
+</head>
+
+<body onload="setMyKeyDownListener()">
+    <main>
+        <h1>Szyfr Macierzowy B</h1>
+        <br/><br/>
+        <div>
+            <h2>Wpisz słowo:</h2>
+            <input type="text" id="tekst" value="HECRNCEYI-ISEP-SGDI-RNTO-AAES-RMPN-SSRO-EEBT-ETIASEEHS-">
+            <h2>Wpisz klucz:</h2>
+            <input type="text" id="klucz2" value="convenience">
+        </div>
+        <br></br>
+        <button class="button" id="myButton2">
+    ZASZYFRUJ
+    </button>
+    <a> </a>
+    <button class="button" id="myButton1">
+        ROZSZYFRUJ
+    </button>
+    <br/><br/>
+
+    <h2>Wynik operacji: </h2>
+    <input class="input1" type="text" size="30" id="wynik" readonly>
+    <br></br>
+    <a>Wskazówka: aby uzyskać poprawny wynik deszyfrowania należy dopełnić słowa znakiem "-" do długości podanej poniżej np. HECRN CEYI ISEP => HECRCEYI-ISEP- (dopełniamy do 5) </a>
+    <input class="input1" type="text" size="30" id="wynik2" readonly>
+    </main>
+
+</body>
+<script type="text/javascript" src="../js/macierzowy2.js"></script>
+</html>
