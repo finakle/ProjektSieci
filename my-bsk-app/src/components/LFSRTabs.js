@@ -3,6 +3,7 @@ import { Tab, Row, Col, Nav } from "react-bootstrap";
 import Generator from "./Generator";
 import Szyfr from "./Szyfr";
 import Pliki from "./Pliki";
+import Obrazy from "./Obrazy";
 
 
 const LFSRTabs = () => {
@@ -20,6 +21,9 @@ const LFSRTabs = () => {
             <Nav.Item>
               <Nav.Link eventKey="trzeci">Pliki</Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="czwarty">Obrazy</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={9}>
@@ -32,6 +36,9 @@ const LFSRTabs = () => {
             </Tab.Pane>
             <Tab.Pane eventKey="trzeci">
               <Pliki />
+            </Tab.Pane>
+            <Tab.Pane eventKey="czwarty">
+              <Obrazy />
             </Tab.Pane>
           </Tab.Content>
         </Col>
