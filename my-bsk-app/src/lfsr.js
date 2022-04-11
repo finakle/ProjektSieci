@@ -48,3 +48,56 @@ export const wielomianToBit = (wielomian) =>{
     }
     return wynik
 }
+
+
+const textNaBinarny = (str = '') => {
+    let res = '';
+    res = str.split('').map(char => {
+        let a = char.charCodeAt(0).toString(2);
+        while(a.length<7){
+            a="0"+a;
+          }
+       return a
+    }).join('');
+    return res;
+ };
+
+export const szyfrowanie=(text,ziarno,wielomian)=>{
+    wielomian = wielomianToBit(wielomian)
+    let binaryText = textNaBinarny(text)
+    let klucz = lfsr(ziarno,wielomian, binaryText.length)
+    let wynik = performXors(binaryText,klucz)
+    return wynik
+}
+
+const performXors=(text,klucz)=>{
+    let wynik=""
+    for(let i=0;i<text.length;i++){
+        wynik+= text[i]^klucz[i]
+    }
+    return wynik;
+}
+
+export const deszyfrowanie=(text,ziarno,wielomian)=>{
+    wielomian = wielomianToBit(wielomian)
+    let klucz = lfsr(ziarno,wielomian, parseInt(text.length))
+    let wynik = performXors(text,klucz)
+    let textWynik = binarnyNaText(wynik)
+    return textWynik
+}
+
+ function binarnyNaText(str) {
+
+    var nowyBin = []
+
+    for (var i = 0, charsLength = str.length; i < charsLength; i += 7) {
+        nowyBin.push(str.substring(i, i + 7));
+    }
+
+    var binKod = [];
+    
+    for (i = 0; i < nowyBin.length; i++) {
+        binKod.push(String.fromCharCode(parseInt(nowyBin[i], 2)));
+      }
+    return binKod.join("");
+    }

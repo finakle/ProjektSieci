@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, Row, Col, Nav } from "react-bootstrap";
 import Generator from "./Generator";
+import Szyfr from "./Szyfr";
 
 
 const LFSRTabs = () => {
@@ -12,12 +13,18 @@ const LFSRTabs = () => {
             <Nav.Item>
               <Nav.Link eventKey="pierwszy">Generator</Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="drugi">Szyfrowanie</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={9}>
           <Tab.Content>
             <Tab.Pane eventKey="pierwszy">
               <Generator />
+            </Tab.Pane>
+            <Tab.Pane eventKey="drugi">
+              <Szyfr />
             </Tab.Pane>
           </Tab.Content>
         </Col>
