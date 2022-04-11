@@ -129,7 +129,7 @@ const Pliki = () => {
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} xs={12} md={6} controlId="formGridName">
-          <FloatingLabel controlId="floatingPassword" label="Wielomian">
+          <FloatingLabel controlId="floatingPassword" label="Wielomian (oddziel cyfry przecinkami)">
             <Form.Control
               onChange={(e) => SetWielomian(e.target.value)}
               type="text"

@@ -66,7 +66,7 @@ const Generator = () => {
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} xs={12} md={6} controlId="formGridName">
-                <FloatingLabel controlId="floatingPassword" label="Wielomian">
+                <FloatingLabel controlId="floatingPassword" label="Wielomian (oddziel cyfry przecinkami)">
                     <Form.Control onChange={(e) => setWielomian(e.target.value)} type="text" placeholder="Wielomian" required/>
                 </FloatingLabel>
                 {wielomianWalidacja!==""?<p style={{color: "red"}}>{wielomianWalidacja}</p>:null}

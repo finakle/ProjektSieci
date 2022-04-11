@@ -6,7 +6,7 @@ const Navbarr = () => {
     <div><Navbar bg="dark" variant="dark">
     <Container>
       <Navbar.Brand>
-      LFSR
+      <Button onClick={()=>{window.location.href = "http://localhost:3000/";}}>LSFR</Button>
       </Navbar.Brand>
       <Button onClick={()=>{window.location.href = "http://127.0.0.1:5501/my-bsk-app/src/components/strona1.html";}}>Kryptografia</Button>
     </Container>
