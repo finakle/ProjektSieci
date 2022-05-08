@@ -4,6 +4,7 @@ import Generator from "./Generator";
 import Szyfr from "./Szyfr";
 import Pliki from "./Pliki";
 import Obrazy from "./Obrazy";
+import Des from "./Des";
 
 
 const LFSRTabs = () => {
@@ -24,6 +25,9 @@ const LFSRTabs = () => {
             <Nav.Item>
               <Nav.Link eventKey="czwarty">Obrazy</Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="fifth">DES szyfr</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={9}>
@@ -39,6 +43,9 @@ const LFSRTabs = () => {
             </Tab.Pane>
             <Tab.Pane eventKey="czwarty">
               <Obrazy />
+            </Tab.Pane>
+            <Tab.Pane eventKey="fifth">
+              <Des />
             </Tab.Pane>
           </Tab.Content>
         </Col>
