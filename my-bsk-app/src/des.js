@@ -27,6 +27,13 @@ const funkcjaPermutacji = [ 16, 7, 20, 21, 29, 12, 28, 17, 1, 15, 23, 26, 5,
         25]
 
 
+const ostatniaPermutacja = [ 40, 8, 48, 16, 56, 24, 64, 32, 39, 7, 47,
+        15, 55, 23, 63, 31, 38, 6, 46, 14, 54, 22, 62, 30, 37, 5, 45, 13,
+        53, 21, 61, 29, 36, 4, 44, 12, 52, 20, 60, 28, 35, 3, 43, 11, 51,
+        19, 59, 27, 34, 2, 42, 10, 50, 18, 58, 26, 33, 1, 41, 9, 49, 17,
+        57, 25 ]       
+
+
 const tablicaS = [
         [ 		[ 14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7 ],
                 [ 0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8 ],
@@ -159,13 +166,17 @@ const zakoduj = (text, key) => {
         let WynikXORzKluczami = XOR(rozszerzonaPrawa, ostateczneKlucze[i]);
          
         let reducedOutput = TablicaS(WynikXORzKluczami);
-        // let spermutowane = permutacja(reducedOutput, funkcjaPermutacji, 32);
-        // let prefinal = XOR(spermutowane, lewaStrona);
+        let spermutowane = permutacja(reducedOutput, funkcjaPermutacji, 32);
+        let prefinal = XOR(spermutowane, lewaStrona);
          
-        // lewaStrona = nastepnaLewa;
-        // prawaStrona = prefinal;
+        lewaStrona = nastepnaLewa;
+        prawaStrona = prefinal;
     }
-    return;
+
+    let outputPrzedOstatecznaPermutacja = prawaStrona + lewaStrona;
+    let wynik = permutacja(outputPrzedOstatecznaPermutacja,ostatniaPermutacja,64);
+
+    return wynik;
  }
 
 const textNaBinarny = (str = '') => {
