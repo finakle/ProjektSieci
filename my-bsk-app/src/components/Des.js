@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import {Form,Row,FloatingLabel, Col,Button} from 'react-bootstrap'
-import { takeIn } from '../des';
+import { takeIn,takeOut, } from '../des';
 import Select from 'react-select'; 
 
 const Des = () => {
     const[text,setText] = useState("");
     const[zakodowanaWiadomosc,setZakodowanaWiadomosc] = useState("");
     const[klucz,setKlucz] = useState("");
+    const[textWalidacja,setTextWalidacja] = useState("");
+    const[zakodowanaWiadomoscWalidacja,setZakodowanaWiadomoscWalidacja] = useState("");
+    const[kluczWalidacja,setKluczWalidacja] = useState("");
     const[wynik,setWynik] = useState("");
     const[wybranaMetoda,SetWybranaMetoda] = useState("")
+    // const[ifValidated,setIfValidated] = useState(false)
 
     const opcje = [
         {value:1, label:"Szyfruj"},
@@ -17,15 +21,76 @@ const Des = () => {
     ]
 
 
-    const Szyfrowanie =  () => {
-        if(wybranaMetoda==="Szyfruj"){
+    useEffect(()=>{
+        if(text===""){
+            setTextWalidacja("Wypełnij to pole")
+        }
+        // else{
+        //     setTextWalidacja("")
+        // }
+    },[text])
+
+
+
+    const sprawdzWalidacjeSzyfrowania =  () => {
+        let ifValidated = true
+        if(text===""){
+            setTextWalidacja("Wypełnij to pole")
+            ifValidated=false
+        }
+
+        if(klucz===""){
+            setKluczWalidacja("Wypełnij to pole")
+            ifValidated=false
+        }
+
+        else if(klucz.trim().length!==64){
+            setKluczWalidacja("Klucz musi mieć 64 bity")
+            ifValidated=false
+        }
+
+        if(!bitsOnly(klucz)){
+            setKluczWalidacja("Pole musi zawierać ciąg bitów")
+            ifValidated=false
+        }
+        
+        if(wybranaMetoda==="Szyfruj"&&ifValidated){
             setWynik(takeIn(text,klucz.trim()))
         }
     }
 
-    const Deszyfrowanie =  () => {
-        if(wybranaMetoda==="Deszyfruj"){
+    const sprawdzWalidacjeDeszyfrowania =  () => {
+        let ifValidated = true
 
+
+        if(zakodowanaWiadomosc===""){
+            setZakodowanaWiadomoscWalidacja("Wypełnij to pole")
+            ifValidated=false
+        }
+
+        
+        if(!bitsOnly(zakodowanaWiadomosc)){
+            setZakodowanaWiadomoscWalidacja("Pole musi zawierać ciąg bitów")
+            ifValidated=false
+        }
+
+        if(klucz===""){
+            setKluczWalidacja("Wypełnij to pole")
+            ifValidated=false
+        }
+
+        else if(klucz.trim().length!==64){
+            setKluczWalidacja("Klucz musi mieć 64 bity")
+            ifValidated=false
+        }
+
+        if(!bitsOnly(klucz)){
+            setKluczWalidacja("Pole musi zawierać ciąg bitów")
+            ifValidated=false
+        }
+        
+        if(wybranaMetoda==="Deszyfruj"&&ifValidated){
+            setWynik(takeOut(zakodowanaWiadomosc,klucz.trim()))
         }
     }
 
@@ -33,10 +98,10 @@ const Des = () => {
         e.preventDefault()
 
         if(wybranaMetoda==="Szyfruj"){
-          Szyfrowanie()
+          sprawdzWalidacjeSzyfrowania()
         }
         else if(wybranaMetoda==="Deszyfruj"){
-          Deszyfrowanie()
+          sprawdzWalidacjeDeszyfrowania()
         }
 
     }
@@ -45,19 +110,52 @@ const Des = () => {
 
     const handleWybierz = (e) => {
       SetWybranaMetoda(e.label);
+
+        setTextWalidacja("")
+        setZakodowanaWiadomoscWalidacja("")
       }
 
       const handleText = (e) => {
         setText(e.target.value);
+
+        if(e.target.value===""){
+            setTextWalidacja("Wypełnij to pole")
+        }
+        else{
+            setTextWalidacja("")
+        }
       }
 
       
       const handleZakodowanaWiadomosc = (e) => {
         setZakodowanaWiadomosc(e.target.value);
+
+        if(e.target.value===""){
+            setZakodowanaWiadomoscWalidacja("Wypełnij to pole")
+        }
+        
+        if(!bitsOnly(e.target.value)){
+            setZakodowanaWiadomoscWalidacja("Pole musi zawierać ciąg bitów")
+        }
       }
 
       const handleKlucz = (e) => {
         setKlucz(e.target.value);
+
+        if(e.target.value===""){
+            setKluczWalidacja("Wypełnij to pole")
+        }
+        else if(!bitsOnly(e.target.value)){
+            setKluczWalidacja("Pole musi zawierać ciąg bitów")
+        }
+        else if(e.target.value.trim().length!==64){
+            setKluczWalidacja("Klucz musi mieć 64 bity")
+        }
+        else{
+            setKluczWalidacja("")
+        }
+
+
       }
 
   return (
@@ -87,6 +185,7 @@ const Des = () => {
                 required
               />
             </FloatingLabel>
+            {textWalidacja!==""?<p style={{color: "red"}}>{textWalidacja}</p>:null}
           </Form.Group>
         </Row>
         <Row className="mb-3">
@@ -99,6 +198,7 @@ const Des = () => {
                     required
                   />
                 </FloatingLabel>
+                {kluczWalidacja!==""?<p style={{color: "red"}}>{kluczWalidacja}</p>:null}
               </Form.Group>
               </Row>
         <Row className="mb-3">
@@ -141,6 +241,7 @@ const Des = () => {
                 placeholder="Zakodowana wiadomość"
               />
             </FloatingLabel>
+            {zakodowanaWiadomoscWalidacja!==""?<p style={{color: "red"}}>{zakodowanaWiadomoscWalidacja}</p>:null}
           </Form.Group>
         </Row>
         <Row className="mb-3">
@@ -153,6 +254,7 @@ const Des = () => {
                     required
                   />
                 </FloatingLabel>
+                {kluczWalidacja!==""?<p style={{color: "red"}}>{kluczWalidacja}</p>:null}
               </Form.Group>
               </Row>
         <Row className="mb-3">
