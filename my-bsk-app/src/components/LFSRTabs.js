@@ -5,6 +5,7 @@ import Szyfr from "./Szyfr";
 import Pliki from "./Pliki";
 import Obrazy from "./Obrazy";
 import Des from "./Des";
+import DesPliki from "./DesPliki";
 
 
 const LFSRTabs = () => {
@@ -26,7 +27,13 @@ const LFSRTabs = () => {
               <Nav.Link eventKey="czwarty">Obrazy</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="fifth">DES szyfr</Nav.Link>
+              <Nav.Link eventKey="piaty">DES szyfr</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="szosty">DES obrazy</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="siodmy">DES pliki</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
@@ -44,8 +51,11 @@ const LFSRTabs = () => {
             <Tab.Pane eventKey="czwarty">
               <Obrazy />
             </Tab.Pane>
-            <Tab.Pane eventKey="fifth">
+            <Tab.Pane eventKey="piaty">
               <Des />
+            </Tab.Pane>
+            <Tab.Pane eventKey="siodmy">
+              <DesPliki />
             </Tab.Pane>
           </Tab.Content>
         </Col>
