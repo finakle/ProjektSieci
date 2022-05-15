@@ -6,6 +6,7 @@ import Pliki from "./Pliki";
 import Obrazy from "./Obrazy";
 import Des from "./Des";
 import DesPliki from "./DesPliki";
+import DesObrazy from "./DesObrazy";
 
 
 const LFSRTabs = () => {
@@ -53,6 +54,9 @@ const LFSRTabs = () => {
             </Tab.Pane>
             <Tab.Pane eventKey="piaty">
               <Des />
+            </Tab.Pane>
+            <Tab.Pane eventKey="szosty">
+              <DesObrazy />
             </Tab.Pane>
             <Tab.Pane eventKey="siodmy">
               <DesPliki />
